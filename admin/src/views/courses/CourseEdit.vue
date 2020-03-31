@@ -27,12 +27,12 @@ export default class CourseEdit extends Vue {
   }
 
   async submit(data: any) {
-    let url = this.IsNew ? `courses` : `courses/${this.id}`
-    let methods = this.IsNew ? 'post' : 'put'
-    await this.$http[methods](url, data);
-    this.data = {}
-    this.$message.success("success");
-    this.$router.go(-1)
+    // let url = this.IsNew ? `courses` : `courses/${this.id}`
+    // let methods = this.IsNew ? 'post' : 'put'
+    // await this.$http[methods](url, data);
+    // this.data = {}
+    // this.$message.success("success");
+    // this.$router.go(-1)
   }
 
   async fetch() {

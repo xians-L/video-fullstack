@@ -2,7 +2,6 @@
     <div>
       <h4>视频列表</h4>
       <el-button type="primary" @click="$router.push('/courses/creat')">添加视频</el-button>
-      <el-button type="success" @click="$router.push('/courses/creat')">更新</el-button>
       
       <el-table
         :data="data.data"
