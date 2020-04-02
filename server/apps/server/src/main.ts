@@ -4,11 +4,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+  app.enableCors()
+
   const options = new DocumentBuilder()
-  .setTitle('video-full-stack后端api接口')
-  .setDescription('服务端接口')
+  .setTitle('video-full-stackWeb端api接口')
+  .setDescription('Web端接口')
   .setVersion('1.0')
+  .addBearerAuth()
   .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);

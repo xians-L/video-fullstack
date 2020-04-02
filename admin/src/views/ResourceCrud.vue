@@ -24,8 +24,8 @@ export default class ResourceCrud extends Vue {
   options:any = {}
   page = {
     total: 0,
-    pageSize: 2,
-    pageSizes: [2,5,10]
+    pageSize: 5,
+    pageSizes: [5,10,20]
   }
   query:any = {
     limit: 2
