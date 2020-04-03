@@ -31,8 +31,8 @@ const MAO = require('multer-aliyun-oss')
     //   storage: MAO({
     //     config: {
     //       region: 'oss-cn-shenzhen',
-    //       accessKeyId: 'LTAI4FfD6pxWdEb7zsgMJzUP',
-    //       accessKeySecret: 'Keld4QDmK0pHx52FEHc3z0xu1Ex0DE',
+    //       accessKeyId: 
+    //       accessKeySecret: 
     //       bucket: 'vue-node-video'
     //     }
     //   })
