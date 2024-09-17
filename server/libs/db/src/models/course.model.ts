@@ -1,21 +1,26 @@
-import { prop, modelOptions, arrayProp, Ref } from '@typegoose/typegoose'
-import { ApiProperty } from '@nestjs/swagger'
-import { Episode } from './episode.model'
+import { prop, modelOptions, arrayProp, Ref } from '@typegoose/typegoose';
+import { ApiProperty } from '@nestjs/swagger';
+import { Episode } from './episode.model';
 
 @modelOptions({
   schemaOptions: {
-    timestamps: true
-  }
+    timestamps: true,
+    toJSON: { virtuals: true },
+  },
 })
 export class Course {
-  @ApiProperty({description: '课程名'})
+  @ApiProperty({ description: '课程名' })
   @prop()
-  title: string
+  title: string;
 
-  @ApiProperty({description: '封面图'})
+  @ApiProperty({ description: '封面图' })
   @prop()
-  cover: string
+  cover: string;
 
-  @arrayProp({itemsRef: 'Episode'})
-  episode: Ref<Episode>
+  @arrayProp({
+    ref: 'Episode',
+    localField: '_id',
+    foreignField: 'course',
+  })
+  episode: Ref<Episode>[];
 }

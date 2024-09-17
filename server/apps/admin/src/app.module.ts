@@ -5,10 +5,39 @@ import { DbModule } from '@libs/db';
 import { UsersModule } from './users/users.module';
 import { CoursesModule } from './courses/courses.module';
 import { EpisodeModule } from './episode/episode.module';
+import { MulterModule } from '@nestjs/platform-express';
+import { CommonModule } from '@app/common';
+
+const MAO = require('multer-aliyun-oss')
 
 @Module({
   imports: [
-    DbModule,
+    CommonModule,
+    MulterModule.registerAsync({
+      useFactory() {
+        return {
+          storage: MAO({
+            config: {
+              region: process.env.OSS_REGION,
+              accessKeyId: process.env.OSS_ACCESS_KEY_ID,
+              accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,
+              bucket: process.env.OSS_BUCKET
+            }
+          })
+        }
+      }
+    }),
+    // MulterModule.register({
+    //   storage: MAO({
+    //     config: {
+    //       region: 'oss-cn-shenzhen',
+    //       accessKeyId: 
+    //       accessKeySecret: 
+    //       bucket: 'vue-node-video'
+    //     }
+    //   })
+    //   // dest: 'uploads'
+    // }),
     UsersModule,
     CoursesModule,
     EpisodeModule
